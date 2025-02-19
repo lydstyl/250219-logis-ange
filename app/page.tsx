@@ -1,101 +1,123 @@
-import Image from "next/image";
+'use client'
+
+import { useState } from 'react'
+import Image from 'next/image'
+
+const images = [
+  '/images/immeuble1.png',
+  '/images/immeuble2.png',
+  '/images/immeuble3.png'
+]
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const [current, setCurrent] = useState(0)
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+  const nextSlide = () => setCurrent((prev) => (prev + 1) % images.length)
+  const prevSlide = () =>
+    setCurrent((prev) => (prev - 1 + images.length) % images.length)
+
+  return (
+    <main className='flex flex-col items-center justify-center min-h-screen p-6 bg-gray-100'>
+      <div className='max-w-4xl bg-white p-8 rounded-lg shadow-lg'>
+        <h1 className='text-3xl font-bold mb-4 text-center'>
+          Immeuble à vendre - Rentable et rénové
+        </h1>
+
+        <div className='relative w-full h-64 overflow-hidden mb-6'>
+          <Image
+            src={images[current]}
+            alt="Photo de l'immeuble"
+            width={800}
+            height={400}
+            className='w-full h-full object-cover rounded-lg'
+          />
+          <button
+            onClick={prevSlide}
+            className='absolute left-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full'
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            ◀
+          </button>
+          <button
+            onClick={nextSlide}
+            className='absolute right-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full'
           >
-            Read our docs
-          </a>
+            ▶
+          </button>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
+
+        <p className='text-lg text-gray-700 mb-4'>
+          <span>
+            Opportunité rare ! Cet immeuble situé en plein cœur de Raismes offre
+          </span>
+          <ul className='list-disc pl-6'>
+            <li>un T3</li>
+            <li>un studio</li>
+            <li>trois T2</li>
+            <li>cinq garages</li>
+            <li>un local commercial</li>
+          </ul>
+        </p>
+
+        <ul className='list-disc pl-6 text-gray-700 mb-4'>
+          <li>
+            Revenu annuel : <strong>plus de 43 000 €</strong>
+          </li>
+          <li>
+            Taxe foncière : <strong>7 651 €</strong>
+          </li>
+          <li>
+            Prix de vente : <strong>375 000 €</strong>
+          </li>
+          <li>Tout est déjà loué</li>
+        </ul>
+
+        <p className='text-lg text-gray-700 mb-4'>
+          L'immeuble bénéficie d'un emplacement stratégique, situé en plein
+          centre de Raismes (
+          <a
+            href='https://maps.app.goo.gl/tmQtXcuvKeiFAzNd7'
+            target='_blank'
+            className='text-blue-600 hover:underline'
+          >
+            au 32, 32 A et 32 B rue Henri Durre
+          </a>
+          ), à proximité immédiate de la gare et des stations de bus. Idéal pour
+          les locataires cherchant une accessibilité rapide aux transports en
+          commun.
+        </p>
+
+        <p className='text-lg text-gray-700 mb-4'>
+          En plus des garages, il y a de nombreuses places de stationnement à
+          proximité, facilitant la vie des résidents et visiteurs.
+        </p>
+
+        <p className='text-lg text-gray-700 mb-4'>
+          Le local commercial actuellement exploité en fruits et légumes offre
+          une grande praticité aux habitants pour faire leurs courses au
+          quotidien.
+        </p>
+
+        <p className='text-lg text-gray-700 mb-4'>
+          Autre atout : le centre commercial Petite Forêt est situé à quelques
+          minutes seulement, offrant un accès rapide à une large gamme de
+          commerces et services.
+        </p>
+
+        <p className='text-lg text-gray-700 mb-4'>
+          Cet immeuble est rentable et bien entretenu.
+        </p>
+
+        <p className='text-center text-xl font-bold text-green-600'>
+          <a
+            href='https://docs.google.com/forms/d/1fnmE1A-iPCkiiUdbFCFF7hRCDCpWVG7W7S8CtUj8fxg/edit'
+            target='_blank'
+            // rel='noreferrer'
+          >
+            Ne ratez pas cette opportunité ! <br />
+            Cliquer ici pour aller plus loin
+          </a>
+        </p>
+      </div>
+    </main>
+  )
 }
