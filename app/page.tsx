@@ -49,14 +49,16 @@ export default function Home() {
           <span>
             Opportunité rare ! Cet immeuble situé en plein cœur de Raismes offre
           </span>
-          <ul className='list-disc pl-6'>
-            <li>un T3</li>
-            <li>un studio</li>
-            <li>trois T2</li>
-            <li>cinq garages</li>
-            <li>un local commercial</li>
-          </ul>
         </p>
+        <ul className='list-disc pl-6'>
+          <li>un T3</li>
+          <li>un studio</li>
+          <li>trois T2</li>
+          <li>cinq garages</li>
+          <li>un local commercial</li>
+        </ul>
+
+        <br />
 
         <ul className='list-disc pl-6 text-gray-700 mb-4'>
           <li>
@@ -72,8 +74,8 @@ export default function Home() {
         </ul>
 
         <p className='text-lg text-gray-700 mb-4'>
-          L'immeuble bénéficie d'un emplacement stratégique, situé en plein
-          centre de Raismes (
+          L&apos;immeuble bénéficie d&apos;un emplacement stratégique, situé en
+          plein centre de Raismes (
           <a
             href='https://maps.app.goo.gl/tmQtXcuvKeiFAzNd7'
             target='_blank'
