@@ -5,7 +5,7 @@ const images = generateImagesPath('lot5', 'png', 1)
 export default function Lot5() {
   return (
     <div>
-      <h1 className='text-3xl font-bold mb-4 text-center'>T2</h1>
+      <h1 className='text-3xl font-bold mb-4 text-center'>Troisième T2</h1>
 
       <Slider images={images} />
       <p className='text-lg text-gray-700 mb-2'>
