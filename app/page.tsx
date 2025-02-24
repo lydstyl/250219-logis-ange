@@ -1,12 +1,9 @@
 'use client'
 
-import Slider from './components/Slider'
+import generateImagesPath from '@/utils/generateImagesPath'
+import Slider from '../components/Slider'
 
-const images = [
-  '/images/immeuble1.png',
-  '/images/immeuble2.png',
-  '/images/immeuble3.png'
-]
+const images = generateImagesPath('immeuble', 'png', 3)
 
 export default function Home() {
   return (

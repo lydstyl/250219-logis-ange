@@ -1,18 +1,19 @@
-import Slider from '../components/Slider'
+import generateImagesPath from '@/utils/generateImagesPath'
+import Slider from '../../components/Slider'
 
-const images = ['/images/lot11.png', '/images/lot12.png', '/images/lot13.png']
+const images = generateImagesPath('lot1', 'png', 3)
 
-export default function Contact() {
+export default function Lot1() {
   return (
     <div>
       <h1 className='text-3xl font-bold mb-4 text-center'>Local commercial</h1>
 
       <Slider images={images} />
-      <p className='text-lg text-gray-700 mb-4'>
-        <span>
-          Local commercial de 121 m² situé en plein cœur de Raismes, en face de
-          la mairie.
-        </span>
+      <p className='text-lg text-gray-700 mb-2'>
+        Surface loi Carrez total : 83 m²
+      </p>
+      <p className='text-lg text-gray-700 mb-2'>
+        Surface au sol total : 121 m²
       </p>
     </div>
   )
