@@ -9,10 +9,10 @@ export default function Navbar() {
   return (
     <nav className='bg-gray-800 p-4 text-white'>
       <div className='max-w-6xl mx-auto flex justify-between items-center'>
-        <h1 className='text-xl font-bold'>Mon Site</h1>
+        {/* <h1 className='text-xl font-bold'>SCI</h1> */}
 
         {/* Menu Desktop */}
-        <ul className='hidden md:flex space-x-4'>
+        <ul className='hidden lg:flex space-x-4'>
           <li>
             <Link href='/'>Accueil</Link>
           </li>
@@ -46,14 +46,14 @@ export default function Navbar() {
         </ul>
 
         {/* Bouton Burger en Mobile */}
-        <button className='md:hidden' onClick={() => setIsOpen(!isOpen)}>
+        <button className='lg:hidden' onClick={() => setIsOpen(!isOpen)}>
           {isOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
       </div>
 
       {/* Menu Mobile (s'affiche en mode burger) */}
       <div
-        className={`md:hidden flex flex-col space-y-4 mt-4 bg-gray-700 p-4 rounded-lg transition-all duration-300 ${
+        className={`lg:hidden flex flex-col space-y-4 mt-4 bg-gray-700 p-4 rounded-lg transition-all duration-300 ${
           isOpen ? 'block' : 'hidden'
         }`}
       >
