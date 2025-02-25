@@ -1,9 +1,15 @@
+'use client'
 import generateImagesPath from '@/utils/generateImagesPath'
 import Slider from '../../components/Slider'
 
-const images = generateImagesPath('lot1', 'png', 3)
-
+import { useEffect, useState } from 'react'
 export default function Lot1() {
+  const [images, setImages] = useState<string[]>([])
+
+  useEffect(() => {
+    generateImagesPath('images/lot1').then(setImages)
+  }, [])
+
   return (
     <div>
       <h1 className='text-3xl font-bold mb-4 text-center'>Local commercial</h1>

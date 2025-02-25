@@ -1,11 +1,10 @@
-export const generateImagesPath = (
-  name: string,
-  extension: string,
-  count: number
-) => {
-  return Array.from(
-    { length: count },
-    (_, i) => `/images/${name}${i + 1}.${extension}`
-  )
+// import fs from 'fs'
+// import path from 'path'
+
+export const generateImagesPath = async (folder: string) => {
+  const res = await fetch(`/api/images?folder=${folder}`)
+  const imagePaths = await res.json()
+  return imagePaths
 }
+
 export default generateImagesPath
