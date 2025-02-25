@@ -11,7 +11,15 @@ export default function Contact() {
           Cliquer ici pour aller plus loin
         </a>
       </p>
-      <p className='text-center'>Ou contacter moi sur LYDSTYL@GMAIL.COM</p>
+      <p className='text-center'>
+        Ou contactez-moi sur{' '}
+        <a
+          href='mailto:lydstyl@gmail.com'
+          className='text-blue-600 hover:underline'
+        >
+          LYDSTYL@GMAIL.COM
+        </a>
+      </p>
     </>
   )
 }

@@ -26,9 +26,9 @@ export default function RootLayout({
   return (
     <html lang='fr'>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-100`}
       >
-        <main className='flex flex-col items-center  bg-gray-100'>
+        <main className='flex flex-col items-center'>
           <div className='max-w-5xl bg-white p-0 rounded-lg shadow-lg'>
             <Nav />
             <div className='p-4'>{children}</div>

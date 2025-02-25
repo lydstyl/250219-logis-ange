@@ -74,6 +74,12 @@ export default function Home() {
         Cet immeuble est rentable et bien entretenu.
       </p>
 
+      <p className='text-lg text-gray-700 mb-4'>
+        Il est possible d&apos;acheter la SCI avec l&apos;immeuble ou juste
+        l&apos;immeuble en fonction de ce qui est le mieux pour l&apos;acheteur
+        et le vendeur.
+      </p>
+
       <p className='text-center text-xl font-bold text-green-600'>
         <a
           href='https://docs.google.com/forms/d/1fnmE1A-iPCkiiUdbFCFF7hRCDCpWVG7W7S8CtUj8fxg/edit'
