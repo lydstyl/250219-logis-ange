@@ -1,27 +1,15 @@
 'use client'
 
-import { useEffect, useState } from 'react'
-import generateImagesPath from '@/utils/generateImagesPath'
 import Slider from '../components/Slider'
 
 export default function Home() {
-  const [images, setImages] = useState<string[]>([])
-
-  useEffect(() => {
-    const fetchImages = async () => {
-      const imagePaths = await generateImagesPath('immeuble')
-      setImages(imagePaths)
-    }
-    fetchImages()
-  }, [])
-
   return (
     <>
       <h1 className='text-3xl font-bold mb-4 text-center'>
         Immeuble à vendre - Rentable et rénové
       </h1>
 
-      <Slider images={images} />
+      <Slider folder={'images/immeuble'} />
 
       <p className='text-lg text-gray-700 mb-4'>
         <span>

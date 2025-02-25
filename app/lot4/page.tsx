@@ -1,13 +1,11 @@
-import generateImagesPath from '@/utils/generateImagesPath'
 import Slider from '../../components/Slider'
 
-const images = generateImagesPath('lot4', 'png', 1)
 export default function Lot4() {
   return (
     <div>
       <h1 className='text-3xl font-bold mb-4 text-center'>Deuxième T2</h1>
 
-      <Slider images={images} />
+      <Slider folder={'images/lot4'} />
       <p className='text-lg text-gray-700 mb-2'>
         Surface loi Carrez total : 68 m²
       </p>
